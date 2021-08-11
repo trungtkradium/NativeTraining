@@ -6,18 +6,21 @@ import com.example.myapplication.data.taskRepository.Task
 @Dao
 interface TaskDao {
     @Query("SELECT * FROM tasks")
-    suspend fun getAll(): List<Task>?
+    fun getAll(): List<Task>?
 
     @Query("SELECT * FROM tasks WHERE id = (:taskId)")
-    suspend fun getTaskById(taskId: String): Task?
+    fun getTaskById(taskId: String): Task?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(vararg tasks: Task)
+    fun insertAll(vararg tasks: Task)
 
     @Update
-    suspend fun updateTask(task: Task)
+    fun updateTask(task: Task)
 
     @Query("DELETE FROM tasks WHERE id = (:taskId)")
-    suspend fun deleteById(taskId: String)
+    fun deleteById(taskId: String)
+
+    @Query("SELECT * FROM tasks WHERE title = (:taskTitle)")
+    fun searchTaskByTitle(taskTitle: String): List<Task>?
 
 }

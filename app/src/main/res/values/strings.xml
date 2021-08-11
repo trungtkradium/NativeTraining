@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="all_tasks_fragment_label">All Tasks Fragment</string>
-    <string name="add_edit_fragment_label">Add Edit Fragment</string>
     <string name="title_hint">Title</string>
     <string name="description_hint">Enter your task here.</string>
-    <string name="no_task">No Tasks</string>
     <string name="task_is_done">Task is done</string>
     <string name="add_task_title">Add Task</string>
     <string name="edit_task_title">Edit Task</string>

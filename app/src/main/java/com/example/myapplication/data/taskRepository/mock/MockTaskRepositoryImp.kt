@@ -1,33 +1,39 @@
 package com.example.myapplication.data.taskRepository.mock
 
+import android.content.Context
 import com.example.myapplication.data.taskRepository.Task
+import com.example.myapplication.data.taskRepository.TaskDao
+import com.example.myapplication.data.taskRepository.TaskDatabase
 
-class MockTaskRepositoryImp {
+class MockTaskRepositoryImp constructor(app: Context) {
+    val mTaskDao: TaskDao
 
-    val tasks: MutableList<Task> = mutableListOf()
-
-    fun getTask(taskId: String): Task? {
-        val result = tasks.filter { it.id == taskId }
-        return if (result.isEmpty()) null; else result[0];
+     fun getAllTask(): List<Task>? {
+        return mTaskDao.getAll()
     }
 
-    fun updateTask(task: Task) {
-        tasks.forEachIndexed { index, it ->
-            if (it.id == task.id) {
-                tasks[index] = task
-            }
-        }
+     fun getTask(taskId: String): Task? {
+        return mTaskDao.getTaskById(taskId)
     }
 
-    fun insert(task: Task) {
-        tasks.add(task)
+     fun updateTask(task: Task) {
+        mTaskDao.updateTask(task)
     }
 
-    fun deleteById(taskId: String) {
-        tasks.removeIf { it.id == taskId }
+     fun insert(task: Task) {
+        mTaskDao.insertAll(task)
     }
 
-    fun searchByTitle(title: String): List<Task> {
-        return tasks.filter { it.title == title }
+     fun deleteById(taskId: String?) {
+        if (taskId != null) mTaskDao.deleteById(taskId)
+    }
+
+     fun searchByTitle(title: String): List<Task>? {
+        return mTaskDao.searchTaskByTitle(title)
+    }
+
+    init {
+        val db: TaskDatabase? = app.let { TaskDatabase.getDatabase(it) }
+        mTaskDao = db?.taskDao()!!
     }
 }
