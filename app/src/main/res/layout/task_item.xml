@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.widget.CompoundButton" />
+
+        <variable
+            name="task"
+            type="com.example.myapplication.data.taskRepository.Task" />
+
+        <variable
+            name="TaskViewModel"
+            type="com.example.myapplication.viewmodel.TaskViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/list_item_padding"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/list_item_padding">
+
+        <CheckBox
+            android:id="@+id/check_box_completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/list_item_padding"
+            android:checked="@{task.isDone}"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{() -> TaskViewModel.saveTask(task.id, task.title, task.description, !task.isDone)}" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="307dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@+id/check_box_completed"
+            android:text="@{task.title}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="@dimen/list_item_padding"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@{task.description}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+    </RelativeLayout>
+</layout>
