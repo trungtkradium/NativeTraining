@@ -3,15 +3,11 @@ package com.example.myapplication
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.myapplication.data.taskRepository.Task
 import com.example.myapplication.data.taskRepository.TaskDao
-import com.example.myapplication.data.taskRepository.TaskRepositoryImp
 import com.example.myapplication.data.taskRepository.mock.MockTaskRepositoryImp
 import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.jupiter.api.Tag
 import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.*
 import org.robolectric.annotation.Config
 
@@ -24,7 +20,6 @@ import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
 @Config(manifest = Config.NONE)
-@Tag("TaskUnitTest")
 class TaskUnitTest {
 
     private val mockTaskRepositoryImp = mock(MockTaskRepositoryImp::class.java)

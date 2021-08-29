@@ -50,7 +50,8 @@ internal class MainActivityTest {
             matches(hasDescendant(withText(title))))
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, scrollTo())).check(
             matches(hasDescendant(withText(description))))
-        onView(withId(R.id.check_box_completed)).check(matches(isNotChecked()))
+        onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, scrollTo())).check(
+            matches(hasDescendant(withId(R.id.check_box_completed))))
 
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.delete_task)).perform(click())
@@ -82,7 +83,8 @@ internal class MainActivityTest {
             matches(hasDescendant(withText(title))))
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, scrollTo())).check(
             matches(hasDescendant(withText(description))))
-        onView(withId(R.id.check_box_completed)).check(matches(isNotChecked()))
+        onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, scrollTo())).check(
+            matches(hasDescendant(withId(R.id.check_box_completed))))
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
         title = "$title Update"
@@ -101,7 +103,8 @@ internal class MainActivityTest {
             matches(hasDescendant(withText(title))))
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, scrollTo())).check(
             matches(hasDescendant(withText(description))))
-        onView(withId(R.id.check_box_completed)).check(matches(isChecked()))
+        onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, scrollTo())).check(
+            matches(hasDescendant(withId(R.id.check_box_completed))))
 
         onView(withId(R.id.tasks_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.delete_task)).perform(click())

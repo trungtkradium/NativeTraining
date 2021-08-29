@@ -32,9 +32,8 @@
                     android:id="@+id/add_task_title_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
                     android:hint="@string/title_hint"
-                    android:imeOptions="flagNoExtractUi"
+                    android:background="@null"
                     android:maxLines="3"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
                     android:textStyle="bold" />
@@ -44,10 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:background="@null"
-                    android:gravity="top"
                     android:hint="@string/description_hint"
-                    android:imeOptions="flagNoExtractUi"
+                    android:background="@null"
                     android:maxLines="5" />
             </LinearLayout>
 
