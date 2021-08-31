@@ -9,10 +9,6 @@
         <variable
             name="task"
             type="com.example.myapplication.data.taskRepository.Task" />
-
-        <variable
-            name="TaskViewModel"
-            type="com.example.myapplication.viewmodel.TaskViewModel" />
     </data>
 
     <RelativeLayout
@@ -32,8 +28,7 @@
             android:layout_marginTop="@dimen/list_item_padding"
             android:checked="@{task.isDone}"
             android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:onClick="@{() -> TaskViewModel.saveTask(task.id, task.title, task.description, !task.isDone)}" />
+            android:minHeight="0dp"/>
 
         <TextView
             android:id="@+id/title_text"

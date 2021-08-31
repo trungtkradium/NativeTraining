@@ -11,6 +11,8 @@ interface TaskRepositoryInterface {
 
     suspend fun getTask(taskId: String): Task?
 
+    suspend fun getTaskByPaging(page: Int, pageSize: Int): List<Task>
+
     suspend fun updateTask(task: Task)
 
     suspend fun insert(task: Task)

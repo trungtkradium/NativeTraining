@@ -11,6 +11,10 @@ interface TaskDao {
     @Query("SELECT * FROM tasks WHERE id = (:taskId)")
     fun getTaskById(taskId: String): Task?
 
+    @Query("SELECT * FROM tasks " +
+            "LIMIT :pageSize OFFSET :pageIndex")
+    fun getTaskByPaging(pageIndex: Int, pageSize: Int): List<Task>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg tasks: Task)
 

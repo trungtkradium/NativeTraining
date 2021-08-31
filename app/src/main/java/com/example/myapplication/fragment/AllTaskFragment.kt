@@ -27,7 +27,7 @@ class AllTaskFragment : Fragment() {
     lateinit var taskViewModel: TaskViewModel
 
     private lateinit var viewDataBinding: FragmentAllTaskBinding
-    private lateinit var listAdapter: TasksAdapter
+    private lateinit var taskAdapter: TasksAdapter
     private var tasks = MutableLiveData<List<Task?>?>()
     private var filterType = MutableLiveData(TasksFilterType.ALL_TASKS)
     override fun onCreateView(
@@ -35,12 +35,8 @@ class AllTaskFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val root = inflater.inflate(R.layout.fragment_all_task, container, false)
-        viewDataBinding = FragmentAllTaskBinding.bind(root).apply {
-            this.taskViewModel = taskViewModel
-        }
-        viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
         setHasOptionsMenu(true)
-        return viewDataBinding.root
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,16 +44,20 @@ class AllTaskFragment : Fragment() {
         val activity = activity as? MainActivity
         activity?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.tasks_list)
-        listAdapter = TasksAdapter(taskViewModel)
-        viewDataBinding.tasksList.adapter = listAdapter
+        taskAdapter = TasksAdapter(taskViewModel)
+        recyclerView.adapter = taskAdapter
+
+//        Only for Paging
+//        lifecycleScope.launch {
+//            taskViewModel.flow(TasksFilterType.ALL_TASKS).collectLatest { pagingData ->
+//                taskAdapter.submitData(pagingData)
+//            }
+//        }
 
         filterType.observe(viewLifecycleOwner, Observer {
-            val tempTasks = getTasksByFilter(filterType.value)
-            setItems(
-                recyclerView,
-                tempTasks
-            )
             activity?.supportActionBar?.title = getTitleByFilter(it)
+            val tempTasks = getTasksByFilter(filterType.value)
+            setItems(recyclerView, tempTasks)
         })
 
         taskViewModel.tasks?.observe(viewLifecycleOwner, Observer {

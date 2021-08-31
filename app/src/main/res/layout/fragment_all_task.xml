@@ -2,19 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <import type="android.view.View" />
-
-        <import type="androidx.core.content.ContextCompat" />
-
-        <variable
-            name="TaskViewModel"
-            type="com.example.myapplication.viewmodel.TaskViewModel" />
-
-    </data>
-
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
@@ -34,7 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:items="@{TaskViewModel.tasks}"
                 />
         </RelativeLayout>
 

@@ -1,6 +1,7 @@
 package com.example.myapplication.data.taskRepository
 
 import android.content.Context
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class TaskRepositoryImp @Inject constructor(app: Context) : TaskRepositoryInterface {
@@ -13,6 +14,10 @@ class TaskRepositoryImp @Inject constructor(app: Context) : TaskRepositoryInterf
 
     override suspend fun getTask(taskId: String): Task? {
         return mTaskDao.getTaskById(taskId)
+    }
+
+    override suspend fun getTaskByPaging(page: Int, pageSize: Int): List<Task> {
+        return mTaskDao.getTaskByPaging(page, pageSize)
     }
 
     override suspend fun updateTask(task: Task) {
