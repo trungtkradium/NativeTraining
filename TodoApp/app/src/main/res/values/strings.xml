@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Enter your task here.</string>
+    <string name="task_is_done">Task is done</string>
+    <string name="add_task_title">Add Task</string>
+    <string name="edit_task_title">Edit Task</string>
+    <string name="all_task_title">All Tasks</string>
+    <string name="completed_task_title">Completed Task</string>
+    <string name="incomplete_task_title">Incomplete Tasks</string>
+    <string name="delete_task">Delete Task</string>
+</resources>
