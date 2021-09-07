@@ -26,7 +26,6 @@ class AllTaskFragment : Fragment() {
     @Inject
     lateinit var taskViewModel: TaskViewModel
 
-    private lateinit var viewDataBinding: FragmentAllTaskBinding
     private lateinit var taskAdapter: TasksAdapter
     private var tasks = MutableLiveData<List<Task?>?>()
     private var filterType = MutableLiveData(TasksFilterType.ALL_TASKS)

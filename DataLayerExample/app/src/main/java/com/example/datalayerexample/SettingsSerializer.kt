@@ -24,8 +24,3 @@ object SettingsSerializer : Serializer<Settings> {
         t: Settings,
         output: OutputStream) = t.writeTo(output)
 }
-
-val Context.settingsDataStore: DataStore<Settings> by dataStore(
-    fileName = "settings.pb",
-    serializer = SettingsSerializer
-)
