@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.datalayerexample
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

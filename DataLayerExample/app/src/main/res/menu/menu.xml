@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/coroutine"
+        android:icon="@drawable/ic_baseline_chevron_left_24"
+        android:title="Coroutine"/>
+    <item
+        android:id="@+id/workManager"
+        android:icon="@drawable/ic_baseline_brightness_1_24"
+        android:title="WorkManager"/>
+    <item
+        android:id="@+id/AlarmManager"
+        android:icon="@drawable/ic_baseline_chevron_right_24"
+        android:title="AlarmManager"/>
+    <item
+        android:id="@+id/TakePicture"
+        android:icon="@drawable/ic_baseline_camera_24"
+        android:title="TakePicture"/>
+</menu>
