@@ -8,7 +8,6 @@ Usecase: Dùng để thay thế findViewById. Thay vì phải khai báo từng b
 ![](./images/dataLayer/differentConfig.png)
 
     -   Trường hợp xử dụng subclass:
-    
 ![](./images/dataLayer/subclass.png)
 
 ### Sự khác nhau khi so với `findViewById`
