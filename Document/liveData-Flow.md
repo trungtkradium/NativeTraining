@@ -13,7 +13,9 @@ Flow là một luồng stream tuần tự của tập hợp các giá trị đư
 Flow là một luồng stream lạnh (cold stream) => nó sẽ bắt đầu xử lý và trả về value khi có một component khác bắt luồng stream. Khác với hot stream sẽ bắt đầu xử lý và trả về value ngay lập tức.
 ## Ưu điểm
 -	Có thể modify stream:
+
 ![](./images/liveData-Flow/flowModifyStream.png)
+
 -	Cung cấp các API để thực thi trong nhiều context khác nhau
 
 **Flow thì liên tục “emit” kết quả còn LiveData sẽ update value khi nào tất cả dữ liệu đã được lấy và trả về tất cả dữ liệu trong 1 lần**

@@ -11,7 +11,9 @@ Background task bao gồm các loại chính:
 -	Immediate
 -	Deferred
 -	Exact
+
 ![](./images/backgroundProcessing/taskType.png)
+
 ## Các giải pháp
 -	Immediate task:
 	-	Sử dụng "kotlin coroutine" để thực hiện các immediate task – task mà kết thúc khi người dùng rời khỏi một “scope” nhất định nào đó hoặc hoàn thành một tương tác nào đó.
@@ -56,6 +58,7 @@ Cung cấp API để thực thi các lệnh trước và sau khi các task đư�
 Một pool không còn tham chiếu trong app và không còn luồng nào đang hoạt động thì sẽ bị ngưng hoạt động tự động.
 ## Handler
 Sử dụng Handler để define “Thread” và có thể run task cho thread mà mình mong muốn.
+
 ![](./images/backgroundProcessing/handler.png)
 
 # TỐI  ƯU HÓA BACKGROUND
@@ -87,8 +90,11 @@ Intent là một message object được dùng để request một action từ c
 Thường được dùng để: start an activity, start a service, delivery a broadcast
 Intent chia làm 2 loại:
 -	Tường minh: intent được define các thành phần tham gia
+
 ![](./images/backgroundProcessing/explicitIntent.png)
+
 -	Bất tường minh: intent không chỉ rõ mục tiêu thành phần, nhưng có đầy đủ thông tin để hệ thống có thể xác định các thành phần có sẵn để chạy cho mục đích của intent
+
 ![](./images/backgroundProcessing/implicitIntent.png)
 
 Một vài thành phần của Intent:
