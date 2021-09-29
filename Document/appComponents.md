@@ -4,12 +4,11 @@ Là tính năng giúp giao tiếp với View dễ dàng.
 Tự động tạo class binding cho mỗi XML layout file. Và mỗi instance của class thì trỏ thẳng đến toàn bộ các view đã được khai báo Id của mỗi file XML.
 Usecase: Dùng để thay thế findViewById. Thay vì phải khai báo từng biến cho mỗi view thì chỉ cần một class View Binding thì có thể truy cập đến tất cả các view có trong file XML.
 -	Different configurations: Nếu sử dụng các config khác nhau thì khi generate thay vì generate ra type của widget đó thì nó sẽ trả về View. 
-	-	Workaround: Chỉ định viewBindingType cho nó:
-
+	-	Workaround: Chỉ định viewBindingType cho nó
 ![](./images/dataLayer/differentConfig.png)
 
-	-	Trường hợp xử dụng subclass:
-
+    -   Trường hợp xử dụng subclass:
+    
 ![](./images/dataLayer/subclass.png)
 
 ### Sự khác nhau khi so với `findViewById`
