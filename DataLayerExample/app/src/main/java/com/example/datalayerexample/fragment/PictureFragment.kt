@@ -47,6 +47,16 @@ class PictureFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnSendIntent.setOnClickListener {
+            val sendIntent: Intent = Intent().apply {
+                action = "com.example.receivedintent.received"
+                putExtra(Intent.EXTRA_TEXT, "Send from DataLayerExample")
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
+        }
+
         binding.btnTakePicture.setOnClickListener {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             takePictureIntent.flags = Constants.REQUEST_CAMERA_CODE
