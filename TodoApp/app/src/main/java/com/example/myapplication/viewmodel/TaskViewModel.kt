@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
+
 class TaskViewModel @Inject constructor(
     var taskRepository: TaskRepositoryInterface
 ) : ViewModel() {

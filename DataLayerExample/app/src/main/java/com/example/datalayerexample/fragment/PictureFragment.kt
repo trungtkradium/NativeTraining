@@ -49,7 +49,7 @@ class PictureFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSendIntent.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
-                action = "com.example.receivedintent.received"
+                action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "Send from DataLayerExample")
                 type = "text/plain"
             }

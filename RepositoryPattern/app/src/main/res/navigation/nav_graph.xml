@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/AnimeFragment">
+
+    <fragment
+        android:id="@+id/AnimeFragment"
+        android:name="com.example.repositorypattern.fragment.AnimeFragment"
+        tools:layout="@layout/fragment_anime">
+
+        <action
+            android:id="@+id/action_AnimeFragmentFragment_to_AnimeQuoteFragmentFragment"
+            app:destination="@id/AnimeQuoteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AnimeQuoteFragment"
+        android:name="com.example.repositorypattern.fragment.AnimeQuoteFragment"
+        tools:layout="@layout/fragment_anime_quote">
+        <argument
+            android:name="animeTitle"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+</navigation>

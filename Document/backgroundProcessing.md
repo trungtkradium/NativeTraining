@@ -103,6 +103,17 @@ Một vài thành phần của Intent:
 -	Data: dữ liệu kèm theo có dạng Uri
 -	Category: bổ sung thông tin cho intent về component xử lý intent
 -	Extra: cặp dữ liệu key-value
+
+### Intent Filter
+Intent filters is use for defining which implicit intents your app can receive. Each intent filter specifies the type of intents it accepts based on the intent's action, data, and category. The system delivers an implicit intent to your app component only if the intent can pass through one of your intent filters.
+**Note:**  An explicit intent is always delivered to its target, regardless of any intent filters the component declares.
+Each intent filter is defined by an `<intent-filter>` element in the app's manifest file, nested in the corresponding app component (such as an `<activity>` element).
+Element of Intent Filter:
+-	`<action>`: Declares the intent action accepted.
+-	`<data>`: Declares the type of data accepted.
+-	`<category>`: Declares the intent category accepted
+**Note:**  To receive implicit intents, you  _must include_  the  `[CATEGORY_DEFAULT]`  category in the intent filter. The methods  `[startActivity()]`  and  `[startActivityForResult()]`  treat all intents as if they declared the  `[CATEGORY_DEFAULT]`  category.
+
 ## Why
 Giao tiếp truyền dữ liệu giữa các activity, service, broadcast
 ## How

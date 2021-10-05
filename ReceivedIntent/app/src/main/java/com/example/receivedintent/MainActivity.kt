@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         startService(Intent(this, NotificationService::class.java))
-        if (intent?.action == Constants.IntentReceived) {
+        if (intent?.action == Constants.IntentReceived || intent?.action == Intent.ACTION_SEND) {
             intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
                 startService(Intent(this, NotificationService::class.java).putExtra("title", it))
                 binding.textView.text = it;
