@@ -32,7 +32,7 @@ class AnimeViewHolder private constructor(private val binding: AnimeBinding) :
         binding.tvAnime.text = item.first
         binding.root.setOnClickListener {
             binding.root.findNavController().navigate(
-                R.id.action_AnimeFragmentFragment_to_AnimeQuoteFragmentFragment, bundleOf(
+                R.id.action_AnimeFragment_to_AnimeQuoteFragment, bundleOf(
                     Constants.ARG_PARAM to item.first
                 )
             )

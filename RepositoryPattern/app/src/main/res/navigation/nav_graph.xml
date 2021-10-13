@@ -10,7 +10,7 @@
         tools:layout="@layout/fragment_anime">
 
         <action
-            android:id="@+id/action_AnimeFragmentFragment_to_AnimeQuoteFragmentFragment"
+            android:id="@+id/action_AnimeFragment_to_AnimeQuoteFragment"
             app:destination="@id/AnimeQuoteFragment" />
     </fragment>
 
@@ -18,6 +18,9 @@
         android:id="@+id/AnimeQuoteFragment"
         android:name="com.example.repositorypattern.fragment.AnimeQuoteFragment"
         tools:layout="@layout/fragment_anime_quote">
+        <action
+            android:id="@+id/action_AnimeQuoteFragment_to_AnimeFragment"
+            app:destination="@id/AnimeFragment" />
         <argument
             android:name="animeTitle"
             app:argType="string"

@@ -10,18 +10,17 @@ import com.example.repositorypattern.Constants
 import com.example.repositorypattern.network.response.anime.Anime
 import com.example.repositorypattern.network.response.anime_quote.AnimeQuote
 import com.example.repositorypattern.paging.AnimeQuotesPagingSource
+import com.example.repositorypattern.repository.AbstractAnimeRepository
 import com.example.repositorypattern.repository.AnimeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class AnimeViewModel @Inject constructor(
-    private val animeRepository: AnimeRepository
+    private val animeRepository: AbstractAnimeRepository
 ) : ViewModel() {
     private val _anime: MutableLiveData<MutableMap<String, Anime>> =
         MutableLiveData<MutableMap<String, Anime>>()
@@ -29,16 +28,15 @@ class AnimeViewModel @Inject constructor(
     val anime get() = _anime
 
     @RequiresApi(Build.VERSION_CODES.N)
-    fun getAnime() {
-        viewModelScope.launch(Dispatchers.IO) {
-            animeRepository.getAnime().collectLatest {
-                val tempValue = _anime.value ?: mutableMapOf()
-                it?.forEach { element ->
-                    tempValue.putIfAbsent(element.anime, element)
-                }
-                _anime.postValue(tempValue)
+    suspend fun getAnime() {
+        animeRepository.getAnime().collectLatest {
+            val tempValue = _anime.value ?: mutableMapOf()
+            it?.forEach { element ->
+                tempValue.putIfAbsent(element.anime, element)
             }
+            _anime.postValue(tempValue)
         }
+
     }
 
     fun getQuotesByTitle(title: String): Flow<PagingData<AnimeQuote>> {

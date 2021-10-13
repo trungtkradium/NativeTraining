@@ -2,19 +2,18 @@ package com.example.repositorypattern
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.repositorypattern.view_model.AnimeViewModel
+import com.example.repositorypattern.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    @Inject
-    lateinit var animeViewModel: AnimeViewModel
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        animeViewModel.getAnime()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        setSupportActionBar(binding.toolbar)
     }
 }
