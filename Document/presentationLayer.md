@@ -19,6 +19,7 @@ UI design, refers to the process of designing a user interface (UI) that is aest
 - Efficiency: Allowing the user to do what they came to do with the least amount of work. Efficiency is created through good design as well as shortcuts
 ### User Experience design
 User Experience encompasses all the customer interactions with the company and its product, app, or website => need asking at every stage what a user may want, need, and feel.
+
 ![](./images/presentationLayer/ux.png)
 User experience design is about understanding how customers feel when they interact with a website, app, or product.
 ### Key of UX design:
