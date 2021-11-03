@@ -21,6 +21,7 @@ UI design, refers to the process of designing a user interface (UI) that is aest
 User Experience encompasses all the customer interactions with the company and its product, app, or website => need asking at every stage what a user may want, need, and feel.
 
 ![](./images/presentationLayer/ux.png)
+
 User experience design is about understanding how customers feel when they interact with a website, app, or product.
 ### Key of UX design:
 - Is it useful? Does the app or website fulfill a customer’s want or need? Does it do so better than the competitors?
